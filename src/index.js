@@ -12,6 +12,7 @@ import {
   Progress,
   Slide,
   Stepper,
+  Notes,
   Text,
   UnorderedList,
   indentNormalizer,
@@ -375,6 +376,39 @@ class MemeGallery extends React.Component {
 }
 
 export default MemeGallery;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class App extends Component {
+  render() {
+    return <MemeGallery />;
+  }
+}
+
+
+
+
+
+
+
 }`);
 
 const Presentation = () => (
@@ -449,26 +483,95 @@ const Presentation = () => (
           </ListItem>
         </Appear>
       </UnorderedList>
+      <Notes>
+        <p>
+          Initialement débuté par Jordan Wake, ingénieur chez Facebook en 2011,
+          puis rejoint par Pete Hunt, ingénieur chez Instagram, pour enfin
+          sortir la première version sous licence Apache 2.0 le 29 mai 2013
+        </p>
+        <p>
+          D'après la définition qu'en fait le site officiel, React est une
+          librairie destinée à construire des interfaces utilisateur
+          composables. Il encourage la création des composants UI réutilisables,
+          qui présentent des données pouvant varirer dans le temps. Beaucoup de
+          personnes utilisent React comme le V dans MVC. React fait abstraction
+          du DOM, offrant un modèle de programmation plus simple et de
+          meilleures performances. Il peut également effectuer le rendu
+          directement sur le serveur à l'aide de Node ou alimenter des
+          applications natives à l'aide de React Native.
+        </p>
+      </Notes>
+    </Slide>
+    <Slide
+      backgroundColor="tertiary"
+      backgroundImage="url(/react_space.jpeg)"
+      backgroundOpacity={0.1}
+    >
+      <Heading>Features, Avantages et Limitations</Heading>
+      <UnorderedList fontSize="27px">
+        <Appear elementNum={0}>
+          <ListItem>
+            JSX: JSX est une extension de syntaxe Javascript utilisée pour le
+            rendu. Elle n'est pas nécessaire dans React mais son utilisation est
+            recommandé.
+          </ListItem>
+        </Appear>
+        <Appear elementNum={1}>
+          <ListItem>
+            Composants: React n'est rien d'autre qu'une logique de composant.
+            Cette logique de construction aide notamment à maintenir plus
+            facilement le code sur des projects à grosse architecture
+          </ListItem>
+        </Appear>
+        <Appear elementNum={2}>
+          <ListItem>
+            + => Utilise un DOM virtuel qui est un object Javacscript, plus
+            rapide que le DOM classique, ce qui permet à React d'offrir des
+            bonnes performances.
+          </ListItem>
+        </Appear>
+        <Appear elementNum={3}>
+          <ListItem>
+            + => Peut être utilisé côté client ou côté serveur, et également en
+            combinaisons avec d'autres framework
+          </ListItem>
+        </Appear>
+        <Appear elementNum={4}>
+          <ListItem>
+            - => Ne couvre que la couche "vue" de l'appli, on a donc quand même
+            besoin de choisir et d'utiliser d'autres technologies pour avoir un
+            panel d'outils de développement complet (routing absent par exemple)
+          </ListItem>
+        </Appear>
+        <Appear elementNum={5}>
+          <ListItem>
+            - => L'utilisation de templating inline et du JSX peut être
+            déroutante au début
+          </ListItem>
+        </Appear>
+      </UnorderedList>
     </Slide>
     <Slide>
       <Heading>Exploration des fondamentaux</Heading>
       <Stepper
         defaultValue={[]}
         values={[
-          [1, 12],
+          [242, 260],
+          [210, 210],
+          [189, 207],
+          [228, 228],
           [14, 16],
-          [17, 30],
-          [36, 45],
-          [52, 72],
-          [74, 83],
-          [85, 93],
-          [95, 115],
-          [117, 129],
-          [131, 147],
-          [149, 158],
-          [168, 187],
-          [189, 208],
-          [208, 228],
+          [329, 329],
+          [351, 355],
+          [1, 12],
+          [212, 226],
+          [235, 240],
+          [15, 16],
+          [213, 213],
+          [17.3],
+          [53, 53],
+          [66, 70],
+          [39, 45],
         ]}
       >
         {(value, step) => (
@@ -490,22 +593,197 @@ const Presentation = () => (
               right="0rem"
               bg="black"
             >
-              {/*{step === 1 && (
+              {step === 0 && (
                 <Text fontSize="1.5rem" margin="0rem">
-                  This is a note!
+                  JSX nous permet grosso modo d'écrire du HTML dans du JS
+                </Text>
+              )}
+              {step === 1 && (
+                <Text fontSize="1.5rem" margin="0rem">
+                  En tant qu'expression, le JSX peut etre assigné à une
+                  variable, ou comme ici, être affiché selon une condition
+                </Text>
+              )}
+              {step === 2 && (
+                <Text fontSize="1.5rem" margin="0rem">
+                  Avec JSX, on peut définir des variables...
+                </Text>
+              )}
+              {step === 3 && (
+                <Text fontSize="1.5rem" margin="0rem">
+                  ... et les intégrer dans nos expressions
                 </Text>
               )}
 
-              {step === 2 && (
+              {step === 4 && (
                 <Text fontSize="1.5rem" margin="0rem">
-                  You can use the stepper state to render whatever you like as
-                  you step through the code.
+                  Dans cet exemple, nous déclarons un nouveau composant de
+                  classe
                 </Text>
-              )}*/}
+              )}
+              {step === 5 && (
+                <Text fontSize="1.5rem" margin="0rem">
+                  que l'on exporte en tant que module
+                </Text>
+              )}
+              {step === 6 && (
+                <Text fontSize="1.5rem" margin="0rem">
+                  pour pouvoir l'importer et l'utiliser dans notre application
+                </Text>
+              )}
+              {step === 7 && (
+                <Text fontSize="1.5rem" margin="0rem">
+                  de la même façon, j'importe des composants de librairies
+                  externes pour composer mon interface plus rapidement...
+                </Text>
+              )}
+              {step === 8 && (
+                <Text fontSize="1.5rem" margin="0rem">
+                  ... en les intégrant dans mes expressions JSX avec les
+                  propriétés dont ils ont besoin, c'est la logique de composant
+                  !
+                </Text>
+              )}
+              {step === 9 && (
+                <Text fontSize="1.5rem" margin="0rem">
+                  on passe les propriétés a un compo via des attributs custom
+                  dans le tag JSX du compo enfant
+                </Text>
+              )}
+              {step === 10 && (
+                <Text fontSize="1.5rem" margin="0rem">
+                  qu'il récupérera dans son constructeur, comme tous les
+                  composants
+                </Text>
+              )}
+              {step === 11 && (
+                <Text fontSize="1.5rem" margin="0rem">
+                  Au delà de l'utilisation de la fonction .map() JS classique,
+                  dans React, cette dernière permet également d'interpoler les
+                  éléments d'une liste en variable que l'on passe en props à un
+                  pattern que l'on souhaite répéter
+                </Text>
+              )}
+
+              {step === 12 && (
+                <Text fontSize="1.5rem" margin="0rem">
+                  le "state" d'un composant est l'objet dans lequel nous allons
+                  stocker toutes nos données liées directement à notre interface
+                </Text>
+              )}
+              {step === 13 && (
+                <Text fontSize="1.5rem" margin="0rem">
+                  On peut maintenant accéder à ces valeurs dans tout notre
+                  composant...
+                </Text>
+              )}
+              {step === 14 && (
+                <Text fontSize="1.5rem" margin="0rem">
+                  la méthode setState nous permet de mettre à jour les data du
+                  state
+                </Text>
+              )}
+
+              {step === 15 && (
+                <Text fontSize="1.5rem" margin="0rem">
+                  componentDidMount() est une méthode du cycle de vie d'un
+                  composant React
+                </Text>
+              )}
             </Box>
           </Box>
         )}
       </Stepper>
+      <Notes>
+        <h3>JSX</h3>
+        <p>
+          JSX permet en gros d'écrire du HTML dans notre javascript. Le JSX peut
+          utiliser tous les tags valides HTML
+        </p>
+        <p>
+          En tant qu'expression, le JSX peut etre assigné à des variables ou
+          affiché de façon conditionnelle voire même retourné par une fonction
+        </p>
+        <p>
+          Les curly braces nous permette d'insérer des valeurs javascript
+          primitives (pas des objets directement) directement dans nos
+          expressions
+        </p>
+        <br />
+        <h3>Composant et props</h3>
+        <p>
+          Il existe deux types de composants, les composants "fonctions" et les
+          composants "classe", pour ce techDojo nous ne verrons que les compo
+          classe, que nous utilisons dans Sélénée, mais si certains sont
+          intéressés, les composants "fonctions" pourront être un autre sujet de
+          techDojo
+        </p>
+        <br />
+        <h3>L'utilisation du State dans React</h3>
+        <p>
+          State est l'endroit où l'on va stocker toutes les données de notre
+          composant. Il est important de concevoir des state les plus simples
+          possibles et surtout minimiser le nombre de composants "stateful". Si
+          par exemple nous avions 10 compo qui nécessitent des données du state,
+          il est alors préférable de créer un compo "container" qui va permettre
+          de gérer les state pour les compo enfants.
+        </p>
+        <p>
+          La principale différence entre state et props est que props est
+          "immutable". C'est pourquoi dans notre exemple précédent, le compo
+          container devrait définir le state qui peut être modifié et mis à
+          jour, et les compo enfants ne recoivent cette data du state que via
+          props.
+        </p>
+        <p>
+          La méthode setState() est utilisée pour mettre à jour l'objet state
+          d'un composant. Cette méthode ne remplace pas le state, elle se
+          contente simplment d'appliquer des changements à l'objet original
+        </p>
+        <br />
+        <h3>Les "life-cycle methods"</h3>
+        <p>
+          Afin d'optimiser les performances générales de notre composant, nous
+          pouvons déclarer des méthodes spéciales pour éxécuter du code
+          uniquement à certaines étapes de la vie d'un composant, notamment au
+          montage ou au démontage, comme avec ComponentDidMount() ou
+          ComponentWillUnmount().
+        </p>
+        <ul>
+          <li>
+            La première méthode, que l'on voit en exemple, est éxécutée juste
+            après le premier rendu côté client. C'est à partir d'ici que vont se
+            faire les requetes AJAX ou les fetch d'API, et que les updates du
+            DOM ou du state devraient se faire.
+          </li>
+          <li>
+            componentWillUnmount() quand à elle est appelée juste après que
+            notre composant a été démonté du DOM, permet notamment d'effectuer
+            toutes les opérations de "nettoyage"
+          </li>
+          <li>
+            Il existe plusieurs autres méthodes, il y en a 7 au total, chacune
+            intervenant à un moment différent de la vie d'un compo
+          </li>
+        </ul>
+      </Notes>
+    </Slide>
+    <Slide
+      backgroundColor="tertiary"
+      backgroundImage="url(/react_space.jpeg)"
+      backgroundOpacity={0.1}
+    >
+      <FlexBox height="100%" flexDirection="column">
+        <Heading margin="0px" fontSize="150px">
+          <i>Des questions ?</i>
+        </Heading>
+        <Heading margin="0px" fontSize="h2">
+          Merci de m'avoir suivi
+        </Heading>
+        <Heading margin="0px 32px" color="primary" fontSize="h3">
+          Passons à la démo de l'appli
+        </Heading>
+      </FlexBox>
     </Slide>
   </Deck>
 );
